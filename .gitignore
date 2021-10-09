@@ -60,6 +60,9 @@ yarn-error.log*
 
 .idea
 
+.github
+.vscode
+
 # Local Netlify folder
 .netlify
 *.tsbuildinfo
