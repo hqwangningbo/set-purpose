@@ -28,6 +28,9 @@ import Portis from "@portis/web3";
 import Fortmatic from "fortmatic";
 import Authereum from "authereum";
 
+import nProgress from "nprogress";
+import "nprogress/nprogress.css"
+
 const { ethers } = require("ethers");
 /*
     Welcome to 🏗 scaffold-eth !
@@ -438,6 +441,7 @@ function App(props) {
       </div>
     );
   }
+  nProgress.done()
 
   return (
     <div className="App">
