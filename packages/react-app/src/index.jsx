@@ -1,11 +1,11 @@
+import Loading from "./components/Loading"
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import React from "react";
 import { ThemeSwitcherProvider } from "react-css-theme-switcher";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import nProgress from "nprogress";
-import "nprogress/nprogress.css"
+
 const themes = {
   dark: `${process.env.PUBLIC_URL}/dark-theme.css`,
   light: `${process.env.PUBLIC_URL}/light-theme.css`,
@@ -20,21 +20,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
-class Loading extends React.Component{
-  constructor() {
-    super();
-    nProgress.start();
-  }
-  render(){
-    return (
-    <div></div>
-    )
-}
-};
-
-function listen(){
+document.onreadystatechange = function (){
   if(document.readyState ==="complete"){
     ReactDOM.render(
       <ApolloProvider client={client}>
@@ -47,8 +33,8 @@ function listen(){
   }else{
     ReactDOM.render(
       <Loading/>,
-      document.getElementById('root')
-    )
+      document.getElementById("root")
+    );
   }
 }
-document.onreadystatechange = listen
+
